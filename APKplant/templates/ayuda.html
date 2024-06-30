@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static '/CSS/ayuda.css' %}">
+    <title>Servicio al Cliente</title>
+</head>
+<body>
+
+    <div class="center-logo">
+        <nav class="navbar title_navbar"> 
+          <a href="{% url 'index' %}">
+            <img src="{% static '/IMG/logo.webp' %}" width="500px">
+          </a>
+        </nav>
+    </div>
+
+    <h1>Servicio al cliente</h1>
+    <h5>Consulta tus dudas con algunos de nuestros ejecutivos, además de conocer nuestros canales de atención y contacto.</h5>
+  
+    <div class="card">
+        <h5 class="card-header">Preguntas Frecuentes</h5>
+        <div class="card-body">
+          <h5 class="card-title">Soporte para los clientes</h5>
+          <p class="card-text">Las preguntas frecuentes se consideran la piedra angular de la estrategia de soporte al cliente. Con un sistema dinámico de preguntas y respuestas, puedes dar una respuesta inmediata a las preguntas de tus clientes.</p>
+        </div>
+    </div>
+      
+    <div class="card">
+        <h5 class="card-header">Archivos de ayuda</h5>
+        <div class="card-body">
+          <h5 class="card-title">Soporte para los clientes</h5>
+          <p class="card-text">Se trata de una serie de materiales a los que el usuario puede acceder para resolver cualquier duda por su propia cuenta, sin la ayuda de nadie más. Haz que este material sea sencillo e intuitivo.</p>
+        </div>
+    </div>
+  
+    <div class="card">
+        <h5 class="card-header">Chat online</h5>
+        <div class="card-body">
+          <h5 class="card-title">Soporte para clientes potenciales</h5>
+          <p class="card-text">Se trata de una plataforma a través de la cual el cliente puede comunicarse con el agente de la empresa. La interacción entre las dos partes se realiza directamente mediante mensajes.</p>
+        </div>
+    </div>
+  
+    <div class="card">
+        <h5 class="card-header">Llamada telefónica</h5>
+        <div class="card-body">
+          <h5 class="card-title">Soporte para clientes potenciales</h5>
+          <p class="card-text">Esta solución permite a los consumidores comunicarse directamente con los agentes de soporte al cliente. Deben ser capaces de resolver sus problemas y dar respuestas satisfactorias.</p>
+        </div>
+    </div>
+
+</body>
+</html>

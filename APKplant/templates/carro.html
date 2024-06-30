@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/CSS/carro.css' %}">
+    <title>Carro de Compras</title>
+</head>
+<body>
+
+    <div class="center-logo">
+        <nav class="navbar title_navbar">
+            <a href="{% url 'index' %}">
+                <img src="{% static '/IMG/logo.webp' %}" width="500px">
+            </a>
+        </nav>
+    </div>
+
+    <h1>Carro de Compras</h1>
+    <div class="container">
+        {% if carro %}
+            <div class="row">
+                {% for item in carro %}
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            {% if item.producto.product_img %}
+                                <img src="{{ item.producto.product_img.url }}" class="card-img-top" alt="Imagen del producto">
+                            {% else %}
+                                <span>No hay imagenes :</span>
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.producto.product_name }}</h5>
+                                <hr>
+                                <p class="card-text">{{ item.producto.descripcion }}</p>
+                                <p class="card-text"><b>Precio Oferta: </b> <span>${{ item.producto.precio_actual }}</span></p>
+                                <p class="card-text"><b>Cantidad: </b> <span>{{ item.cantidad }}</span></p>
+                                {% if item.producto.product_id %}
+                                    <form method="post" action="{% url 'eliminar_del_carro' item.producto.product_id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger">Eliminar producto</button>
+                                    </form>
+                                {% else %}
+                                    <p>Error: product_id no encontrado.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No hay productos en el carro.</p>
+        {% endif %}
+    </div>
+    
+</body>
+</html>

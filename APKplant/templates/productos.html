@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/CSS/productos.css' %}">
+    <title>Productos a la venta</title>
+</head>
+<body>
+    
+    <div class="center-logo">
+        <nav class="navbar title_navbar">
+            <a href="{% url 'index' %}">
+                <img src="{% static '/IMG/logo.webp' %}" width="500px">
+            </a> 
+
+            <button class="btn btn-outline-light" type="button">
+                <div class="align-items-center">
+                    <a href="{% url 'carro' %}">
+                        <img src="{% static '/IMG/carro.png' %}" alt="." >
+                    </a>
+                </div>
+            </button>
+
+            {% for producto in productos %}
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    {% if producto.product_img %}
+                        <img src="{{ producto.product_img.url }}" class="card-img-top" alt="Imagen del producto">
+                    {% else %}
+                        <span>No hay imagenes :</span>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ producto.product_name }}</h5>
+                        <p class="card-text">{{ producto.descripcion }}</p>
+                        <p class="card-text"><b>Precio Original: </b> <span><strike>${{ producto.precio_original }}</strike></span></p>
+                        <p class="card-text"><b>Precio Oferta: </b> <span>${{ producto.precio_actual }}</span></p>
+                        <form method="post" action="{% url 'agregar_al_carro' producto.product_id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Agregar al carro</button>
+                        </form>                   
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+</body>
+</html>

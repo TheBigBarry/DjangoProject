@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/CSS/registro.css' %}">
+    <title>Página de Registro</title>
+</head>
+<body>
+
+    <div class="container conten-registro">
+        <div class="row">
+            
+
+            <div class="container">
+                <div class="center-logo col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+                    <nav class="navbar title_navbar">
+                        <img src="{% static '/IMG/logo.webp' %}" width="500px">
+                    </nav>
+                </div>
+
+                <div class="login col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <h2>Registro</h2>
+                    <form action="{% url 'registro' %}" method="post">
+                        {% csrf_token %}
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" required>
+                        
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                        
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" required>
+                        
+                        <label for="confirm_password">Confirmar Contraseña:</label>
+                        <input type="password" id="confirm_password" name="confirm_password" required>
+                        
+                        <input type="submit" value="Registrarse">
+                    </form>
+                </div>
+            </div>
+
+
+            
+        </div> <!-- fin row -->
+    </div> <!-- fin container --> 
+
+
+</body>
+</html>

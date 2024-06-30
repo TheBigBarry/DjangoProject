@@ -1,0 +1,72 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    /* Ajustes imagen de fondo */
+    background-image: url('/static/IMG/fondo 1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+.btn-icono, .btn-carro{
+    margin: 50px 20px 50px 0px;
+}
+
+
+.center-logo {
+    position: relative;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    padding: 0px 0px 0px 0px;
+    background: rgba(0, 0, 0, 0.5);
+    height: 160px;
+    
+}
+
+.btn-ayuda{
+    color: white;
+}
+
+.nav-link.active.btn-ayuda {
+    color: white;
+    margin: 20px 20px 20px 20px;
+}
+
+.nav-item{
+    font-size: 40px;
+}
+
+.nav-item-inicio{
+    font-size: 50px;
+}
+
+.btn-carro {
+    padding: 10px; /* Ajusta el relleno del botón para hacerlo más grande */
+
+}
+
+.img-carro {
+    width: 35px; /* Ajusta el ancho de la imagen */
+}
+
+.conteds{display: flex;
+}
+
+.car{margin-right:10px ;
+}
+
+.cdard{margin-left: 10px;
+}
+
+.cdrd{margin-left: 10px;
+}
+
+.cdadrd{margin-left:10px ;
+}

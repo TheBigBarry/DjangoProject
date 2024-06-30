@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Productos</title>
+    <link rel="stylesheet" href="{% static 'css/stock_edit.css' %}">
+</head>
+<body>
+
+    <div class="center-logo">
+        <nav class="navbar title_navbar"> 
+          <a href="{% url 'index' %}">
+            <img src="{% static 'IMG/logo.webp' %}" alt="Logo">
+          </a>
+        </nav>
+    </div>
+
+    <div class="content">
+
+        {% if producto %}
+            <h2>Formulario actualizar productos del stock</h2>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-table">
+                    {{form.as_table}}
+                </div>
+                <input type="submit" class="submit-button" name="opcion" value="Actualizar">
+            </form>
+        {% endif %}
+        
+        <a class="back-link" href="{% url 'stock_crud' %}">Volver</a>
+
+    </div>
+</body>
+</html>
